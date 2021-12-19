@@ -1,0 +1,36 @@
+﻿<div class="container body-content">
+
+    <h1 class="centered">@ViewBag.title</h1>
+</div>
+
+ <table class="table-striped tbody tr:nth-of-type(odd)" style= "background-color: rgba(0, 0, 0, 0.05)">
+    <tr>
+        <th>ID</th>
+        @foreach(var column in ViewBag.columns)
+        {  
+            
+           if(@column.Value == "All")
+            {
+                <th>Name</th>
+            }
+            else
+            {
+                 <th>@column.Value</th>
+            }
+         }
+    </tr>
+    @foreach(var job in ViewBag.Jobs)
+    {
+        <tr>
+             <td>@job.Id</td>
+             <td>@job.Name</td>
+             <td>@job.Employer</td>
+             <td>@job.Location</td>
+             <td>@job.PositionType</td>
+             <td>@job.CoreCompetency</td>
+         </tr>
+    }
+
+</table>
+
+   

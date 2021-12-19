@@ -209,6 +209,10 @@ table {
   border-collapse: collapse;
 }
 
+table td input {
+    width: 40px;
+}
+
 caption {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;

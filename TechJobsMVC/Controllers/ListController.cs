@@ -28,6 +28,7 @@ namespace TechJobsMVC.Controllers
             {"coreCompetency", JobData.GetAllCoreCompetencies()}
         };
 
+        internal static List<Job> jobs;
         public IActionResult Index()
         {
             ViewBag.columns = ColumnChoices;
@@ -43,7 +44,7 @@ namespace TechJobsMVC.Controllers
         // list jobs by column and value
         public IActionResult Jobs(string column, string value)
         {
-            List<Job> jobs;
+           // List<Job> jobs;
             if (column.ToLower().Equals("all"))
             {
                 jobs = JobData.FindAll();
@@ -57,7 +58,16 @@ namespace TechJobsMVC.Controllers
             ViewBag.jobs = jobs;
 
             return View();
+        }      
+        public IActionResult AllJobs()
+        {
+            jobs = JobData.FindAll();
+            ViewBag.title = "All Jobs";
+            ViewBag.columns = ColumnChoices;
+            ViewBag.jobs = jobs;
+            return View();
         }
 
+      
     }
 }
