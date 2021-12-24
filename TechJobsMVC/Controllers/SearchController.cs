@@ -33,14 +33,13 @@ namespace TechJobsMVC.Controllers
             else
             {
                 jobs = JobData.FindByColumnAndValue(searchType, searchTerm);
-                ViewBag.title = "Jobs with " + ListController.ColumnChoices[searchType] + ": " + searchTerm;
+                //ViewBag.title = "Jobs with " + ListController.ColumnChoices[searchType] + ": " + searchTerm;
             }
 
+            ViewBag.columns = ListController.ColumnChoices;
             ViewBag.jobs = jobs;
 
             return View("Index");
-            //return Redirect("/Search/Index/myJobs=jobs");
-
         }
     }
 }
